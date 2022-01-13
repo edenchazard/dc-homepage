@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+            <meta charset="UTF-8">
+            <base href="/dc/">
+            <link rel="stylesheet" type="text/css" href="./static/reset.css">
+            <link rel="stylesheet" type="text/css" href="./static/stylesheet.css">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="keywords" content="dragcave, dragons, 42" />
+            <meta name="description" content="" />
+            <meta name="robots" content="index,follow" />
+            <title>{% block title %}{% endblock %}</title>
+            <script type='text/javascript' src="./static/page.js"></script>
+        {% endblock %}
+    </head>
+    <body>
+        <div id='container'>
+            <div id='middle'>
+                <header id='header'>
+                    <nav id='menu'>
+                        {# <a href='thuweds'>Thuweds</a> #}
+                        <a href='prizes'>Prizes</a>
+                        <a href='trades'>Trades</a>
+                        <a href='https://forums.dragcave.net/profile/12154-fortytwo/' target="_blank">Forum</a>
+                        <a href='http://dragcave.net/user/42' target="_blank">Scroll</a>
+                        <a href='lineage-builder'>Lineage builder</a>
+                    </nav>
+                </header>
+                <main id="content">
+                    {% block content %}{% endblock %}
+                </main>
+                <footer>Art copyright &copy; Dragon Cave artists.</footer>
+            </div>
+        </div>
+    </body>
+</html>

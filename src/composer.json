@@ -1,0 +1,10 @@
+{
+    "name": "chazza/dc",
+    "homepage": "https://chazza.me/dc",
+    "description": "Chazza's DC stuff.",
+    "require": {
+        "php": "^8.0",
+        "klein/klein": "^2.1",
+        "twig/twig": "3.0"
+    }
+}

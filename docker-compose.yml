@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+    apache:
+        build: ./apache/
+        depends_on:
+            - php
+        ports:
+            - "8080:80"
+        volumes:
+            - ./src/:/var/www/html/dc/
+    php:
+        build: ./php/
+        volumes:
+            - ./src:/src
+        ports:
+            - "9000:9000"

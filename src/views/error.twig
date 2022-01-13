@@ -1,0 +1,10 @@
+{% extends "base.twig" %}
+
+{% block title %}{{ code }}{% endblock %}
+{% block content %}
+    <div>
+        <h2>Oops!</h2>
+        <p>Sorry, an error has occurred.</p>
+        <p>{{ code }}: {{ message }}</p>
+    </div>
+{% endblock %}

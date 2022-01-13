@@ -1,0 +1,46 @@
+{% extends "base.twig" %}
+{% block title %}42's Prize Dragons{% endblock %}
+{% block keywords %}prize{% endblock %}
+{% block content %}
+    <section class="central">
+        <h1>Prize Dragons</h1>
+        <p>All lineages list their mate and type of lineage (e.g. spiral or stairstep).</p>
+    </section>
+    <section role='search' id='filter'>
+        <form method="GET" id='filter_form'>
+            <div>
+                <select id='filter_dropdown' name='filter' onchange="submit_form()">
+                    <option value="">All</option>
+                    {% for breed in unique_breeds %}
+                        <option value="{{breed}}"{% if breed == filter_crit %} selected="selected"{% endif %}>{{breed}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </form>
+    </section>
+    {% for gen in data %}
+        <section class='gen' id='gen-{{gen.gen}}'>
+            <h2>{{gen.gen}}</h2>
+            {% for prize_colour in gen.prizes %}
+                {% if prize_colour.dragons is not empty %}
+                    <section class='prize-colour'>
+                        <img src="//dragcave.net/image/{{prize_colour.sprite.code}}" alt="{{prize_colour.prize}}" />
+                        <h3>{{prize_colour.prize}}</h3>
+                        {% for dragon in prize_colour.dragons %}
+                            <div class='prize-box'>
+                                <span class='prize-box-icon'>
+                                    <a class='prize-box-link' href="https://dragcave.net/lineage/{{dragon.code}}" target="_blank">
+                                        <img src="//dragcave.net/image/{{dragon.mate.code}}" style="left:{{dragon.mate.x}}px; top:{{dragon.mate.y}}px; height:{{dragon.mate.h}}px" alt="{{dragon.code}}"/>
+                                    </a>
+                                </span><br />
+                                {{dragon.type}} <br />
+                                <span class='prize-gender'>{{dragon.mate_gender|raw}}</span>&nbsp;<span class='prize-mate'>{{dragon.mate.breed}}</span>
+                            </div>
+                        {% endfor %}
+                    </section>
+                {% endif %}
+            {% endfor %}
+        </section>
+        <hr />
+    {% endfor %}
+{% endblock %}

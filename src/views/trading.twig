@@ -1,0 +1,46 @@
+{% extends "base.twig" %}
+{% set cbs = ['Mint', 'Frill', 'Sunsong Amphiptere', 'Coral Pygmy Wyvern', 'Daydream', 'Gemshard', 'Glowback Pygmy', 'Guardian', 'Yulebuck', 'Pyralspite', 'Risensong', 'Setsong', 'Seasonal', 'Skywing', 'Venturis'] %}
+{% block title %}42's Wishlist{% endblock %}
+{% block keywords %}wishlist, iou, trades{% endblock %}
+{% block content %}
+<h1 class="central">Trades</h1>
+<section id='updated'>
+    <em>Last updated on {{updated|date("d-m-Y")}}</em>
+</section>
+<section id="policy">
+    <h2>Policies</h2>
+    <p>I don't keep lists and I don't give IOUs out at all however I do accept them.</p>
+    <p>If you have a breeding request for me I'll most likely be happy to breed them for you but it is on you to remind me every week because I won't write it down. If you'd like to supply a particular mate then that is also possible.</p>
+    <h3>Free to breed:</h3>
+    <p>I breed the following things for free:</p>
+    <ul>
+        <li>3rd gen prizes (<a href="prizes#gen-3">found here</a>)</li>
+        <li>2nd gen thuweds (<a href="https://dragcave.net/group/51877" target="_blank">found here</a>)</li>
+        <li>2nd gen spriter alts (<a href="https://dragcave.net/group/51878" target="_blank">found here</a>)</li>
+        <li>2nd gens from hollies (<a href="https://dragcave.net/group/131541" target="_blank">found here</a>)</li>
+        <li>2nd gens from zombies (<a href="https://dragcave.net/group/131572" target="_blank">found here</a>)</li>
+    </ul>
+</section>
+<section id="wishlist">
+    <h2>Wishlist</h2>
+    <section id="primary">
+        <h3>Primary</h3>
+        <p>I'm almost always open to trading for these things. Please note I'm picky about 2nd gen prizes and salts, it has to be a pair I really like. I won't trade CB metals for them. If you're offering a 2nd gen spriter alt you can probably get more for it from someone else.</p>
+        <ul>
+            <li>2nd gen Thuwed</li>
+            <li>2nd gen Prize</li>
+            <li>2nd gen from spriter alt</li>
+            <li>Codes and variations of: 4tee2, forty, fourT, edenc</li>
+        </ul>
+    </section>
+    <section id="cbhatchies">
+        <h3>CB hatchlings</h3>
+        <p>These are my favourite breeds, so I'm always interested in CB hatchlings from this list. For breed-only dragons on this list, I'd like 2nd gen.</p>
+        <ul>
+            {% for cb in cbs|sort %}
+                <li>{{ cb }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+</section>
+{% endblock %}

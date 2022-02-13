@@ -1,8 +1,7 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
 require("data/functions.php");
-const APP_PATH = "/dc";
-
+require_once __DIR__ . '/vendor/autoload.php';
+define('APP_PATH', getenv('DEPLOYMENT_URL'));
 $klein = new \Klein\Klein();
 $request = \Klein\Request::createFromGlobals();
 
@@ -68,56 +67,25 @@ $klein->respond('/prizes' /*/[:format]?'*/, function ($request, $response, $serv
         }
     }
 
-   /* if($format == 'old'){
-        $template = 'prizes-old.twig';
-    }
-    else{*/
-        $template = 'prizes.twig';
-    //}
-
-    return $app->twig->render($template, array(
+    return $app->twig->render('prizes.twig', array(
         'data' => $data,
         'filter_crit' => $filter,
-        'unique_breeds' => $unique_breeds
+        'unique_breeds' => $unique_breeds,
+        'base' => APP_PATH
     ));
 });
 
 $klein->respond('/trades', function ($request, $response, $service, $app) {
-    return $app->twig->render('trading.twig', array("updated" => filemtime('views/trading.twig')));
-});
-/*$klein->respond('/thuweds', function ($request, $response, $service, $app) {
+    echo APP_PATH."TEEEEEEEEEEEEST";
+    return $app->twig->render('trading.twig', array(
+        "updated" => filemtime('views/trading.twig'),
+        'base' => APP_PATH
+    ));
 });
 
-$klein->respond('/lineage-builder', function ($request, $response, $service, $app){
-    return $service->render('lineage-builder/index.html');
+$klein->respond('/tools', function ($request, $response, $service, $app) {
+    return $app->twig->render('tools.twig');
 });
-*/
-/*
-$klein->respond('GET', '/lineage-builder/sprites.json', function ($request, $response, $service, $app) {
-    $filename = CACHE_PATH."/".md5('test'.SALT.".json");
-
-    if(!in_cache($filename)){
-        $data = json_encode(get_breed_data('data/breed-data.csv'));
-        else if($format == "csv"){
-            $data = file_get_contents('../breed-data.csv');
-        }
-        save_to_cache($filename, $data);
-    }
-
-    //header('Content-type: '.$mimetype);
-    $response->json(retrieve_from_cache($filename));
-    
-    $response->json(json_encode(get_breed_data('data/breed-data.csv')));
-});*/
-/*
-
-$klein->respond('@^/lineage/', function ($request, $response, $service, $app){
-    //echo 
-    $file = "lineage-builder/".substr($request->uri(), strlen('lineage/'));
-    $service->render($file);
-    return $response->file($file);
-});
-*/
 
 $klein->onHttpError(function ($code, $router){
     switch ($code) {

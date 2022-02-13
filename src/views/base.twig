@@ -3,7 +3,7 @@
     <head>
         {% block head %}
             <meta charset="UTF-8">
-            <base href="/dc/">
+            <base href="{{ base }}">
             <link rel="stylesheet" type="text/css" href="./static/reset.css">
             <link rel="stylesheet" type="text/css" href="./static/stylesheet.css">
             <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,12 +19,11 @@
             <div id='middle'>
                 <header id='header'>
                     <nav id='menu'>
-                        {# <a href='thuweds'>Thuweds</a> #}
                         <a href='prizes'>Prizes</a>
                         <a href='trades'>Trades</a>
                         <a href='https://forums.dragcave.net/profile/12154-fortytwo/' target="_blank">Forum</a>
                         <a href='http://dragcave.net/user/42' target="_blank">Scroll</a>
-                        <a href='lineage-builder'>Lineage builder</a>
+                        <a href='tools'>Tools</a>
                     </nav>
                 </header>
                 <main id="content">

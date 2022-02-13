@@ -5,6 +5,7 @@
     "require": {
         "php": "^8.0",
         "klein/klein": "^2.1",
-        "twig/twig": "^3.0"
+        "twig/twig": "^3.0",
+        "icamys/php-sitemap-generator": "^4.3"
     }
 }

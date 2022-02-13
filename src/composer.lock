@@ -4,8 +4,70 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7540b0c331085537fb193aa3c9ce81d7",
+    "content-hash": "80eef7e711453c24db23368cb5026a7c",
     "packages": [
+        {
+            "name": "icamys/php-sitemap-generator",
+            "version": "4.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/icamys/php-sitemap-generator.git",
+                "reference": "5d54b5679b811cf3345c5bbb0cc45d84a797dfe6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/icamys/php-sitemap-generator/zipball/5d54b5679b811cf3345c5bbb0cc45d84a797dfe6",
+                "reference": "5d54b5679b811cf3345c5bbb0cc45d84a797dfe6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-dom": "*",
+                "ext-mbstring": "*",
+                "ext-simplexml": "*",
+                "ext-spl": "*",
+                "ext-xml": "*",
+                "ext-xmlwriter": "*",
+                "ext-zlib": "*",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "php-mock/php-mock-phpunit": "^2.6.0",
+                "phpunit/phpunit": "^9.3.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Icamys\\SitemapGenerator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Prisacari Dmitrii",
+                    "email": "prisacari.dmitrii@gmail.com",
+                    "homepage": "http://github.com/icamys/"
+                }
+            ],
+            "description": "Simple PHP sitemap generator.",
+            "homepage": "https://github.com/icamys/php-sitemap-generator",
+            "keywords": [
+                "PSR-1",
+                "PSR-2",
+                "PSR-4",
+                "Sitemap",
+                "generator",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/icamys/php-sitemap-generator/issues",
+                "source": "https://github.com/icamys/php-sitemap-generator/tree/4.3.3"
+            },
+            "time": "2021-08-01T15:07:57+00:00"
+        },
         {
             "name": "klein/klein",
             "version": "v2.1.2",

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://chazza.me/dc/sitemap.xml

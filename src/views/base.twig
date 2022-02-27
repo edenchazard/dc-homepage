@@ -6,15 +6,16 @@
             {% if DEPLOYMENT_URL != '' %}
                 <base href="{{ DEPLOYMENT_URL }}">
             {% endif %}
-            <link rel="stylesheet" type="text/css" href="./static/reset.css">
-            <link rel="stylesheet" type="text/css" href="./static/stylesheet.css">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" type="text/css" href="static/reset.css" />
+            <link rel="stylesheet" type="text/css" href="static/stylesheet.css"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="keywords" content="dragcave, dragons, 42" />
             <meta name="description" content="" />
             <title>{% block title %}{% endblock %}</title>
-            <script type='text/javascript' src="./static/page.js"></script>
+            <script type='text/javascript' src="static/page.js"></script>
         {% endblock %}
     </head>
+
     <body>
         <div id='container'>
             <div id='middle'>
@@ -22,8 +23,8 @@
                     <nav id='menu'>
                         <a href='prizes'>Prizes</a>
                         <a href='trades'>Trades</a>
-                        <a href='https://forums.dragcave.net/profile/12154-fortytwo/' target="_blank">Forum</a>
-                        <a href='http://dragcave.net/user/42' target="_blank">Scroll</a>
+                        <a href='//forums.dragcave.net/profile/12154-fortytwo/' target="_blank">Forum</a>
+                        <a href='//dragcave.net/user/42' target="_blank">Scroll</a>
                         <a href='tools'>Tools</a>
                     </nav>
                 </header>

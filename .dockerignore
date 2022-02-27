@@ -1,1 +1,14 @@
-/src/vendor
+**/vendor
+**/README.md
+**/.dockerignore
+**/.gitignore
+**/.git
+**/build
+**/docker-compose*
+**/Dockerfile*
+**/node_modules
+**/npm-debug.log
+**/docker-compose*
+**/.vs
+**/.vscode
+#**/.env*

@@ -1,19 +1,21 @@
 <?php
-require("data/functions.php");
-require_once __DIR__ . '/vendor/autoload.php';
-define('APP_PATH', getenv('DEPLOYMENT_URL'));
+require "data/functions.php";
+require_once 'vendor/autoload.php';
+define('APP_PATH', getenv('DEPLOYMENT_URL') ?: '');
+
 $klein = new \Klein\Klein();
 $request = \Klein\Request::createFromGlobals();
-
 // Grab the server-passed "REQUEST_URI"
 $uri = $request->server()->get('REQUEST_URI');
 // Set the request URI to a modified one (without the "subdirectory") in it
-$request->server()->set('REQUEST_URI', substr($uri, strlen(APP_PATH)));
+$request->server()->set('REQUEST_URI', substr($uri, strlen(APP_PATH)-1));
 
 $klein->respond(function ($request, $response, $service, $app) use ($klein) {
     $app->register('twig', function () {
         $loader = new \Twig\Loader\FilesystemLoader("views");
-        return new \Twig\Environment($loader);
+        $twig = new \Twig\Environment($loader);
+        $twig->addGlobal('DEPLOYMENT_URL', APP_PATH);
+        return $twig;
     });
 });
 
@@ -70,16 +72,13 @@ $klein->respond('/prizes' /*/[:format]?'*/, function ($request, $response, $serv
     return $app->twig->render('prizes.twig', array(
         'data' => $data,
         'filter_crit' => $filter,
-        'unique_breeds' => $unique_breeds,
-        'base' => APP_PATH
+        'unique_breeds' => $unique_breeds
     ));
 });
 
 $klein->respond('/trades', function ($request, $response, $service, $app) {
-    echo APP_PATH."TEEEEEEEEEEEEST";
     return $app->twig->render('trading.twig', array(
-        "updated" => filemtime('views/trading.twig'),
-        'base' => APP_PATH
+        "updated" => filemtime('views/trading.twig')
     ));
 });
 

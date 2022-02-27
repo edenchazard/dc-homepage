@@ -1,13 +1,15 @@
 services:
     web:
-        image: nginx:latest
+        image: nginxinc/nginx-unprivileged:stable-alpine
         ports:
-            - "80:80"
+            - 80:80
         volumes:
             - ./src:/var/www/html
             - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
         depends_on:
             - php
+        networks:
+            - dc
     php:
         build:
             context: .
@@ -17,6 +19,12 @@ services:
             - ./docker/php.ini:/usr/local/etc/php/php.ini
             - /var/www/html/vendor/
         environment:
-            - DEPLOYMENT_URL=
+            - DEPLOYMENT_URL=/dc/
             - ENVIRONMENT=development
-        
+        networks:
+            - dc
+networks:
+    internal:
+    dc:
+        name: dc
+        driver: bridge

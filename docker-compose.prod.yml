@@ -1,0 +1,28 @@
+services:
+    prod_web:
+        build:
+            context: .
+            dockerfile: ./docker/prod-nginx.Dockerfile
+        ports:
+            - 80:8080
+        depends_on:
+            - php
+        networks:
+            - dc
+            - internal
+        restart: always
+    prod_php:
+        build:
+            context: .
+            dockerfile: ./docker/prod-php.Dockerfile
+        environment:
+            - DEPLOYMENT_URL=/dc/
+            - ENV=production
+        restart: always
+        networks:
+            - internal
+networks:
+    internal:
+    dc:
+        name: dc
+        driver: bridge

@@ -5,7 +5,7 @@ services:
             context: .
             dockerfile: ./docker/prod-nginx.Dockerfile
         ports:
-            - 80:8080
+            - 100:8080
         depends_on:
             - prod_php
         networks:

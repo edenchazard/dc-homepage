@@ -6,9 +6,10 @@ define('APP_PATH', getenv('DEPLOYMENT_URL') ?: '');
 $klein = new \Klein\Klein();
 $request = \Klein\Request::createFromGlobals();
 // Grab the server-passed "REQUEST_URI"
-$uri = $request->server()->get('REQUEST_URI');
+#$uri = $request->server()->get('REQUEST_URI');
+#echo $uri;
 // Set the request URI to a modified one (without the "subdirectory") in it
-$request->server()->set('REQUEST_URI', substr($uri, strlen(APP_PATH)-1));
+#$request->server()->set('REQUEST_URI', substr($uri, strlen(APP_PATH)-1));
 
 $klein->respond(function ($request, $response, $service, $app) use ($klein) {
     $app->register('twig', function () {

@@ -6,13 +6,13 @@
             {% if DEPLOYMENT_URL != '' %}
                 <base href="{{ DEPLOYMENT_URL }}">
             {% endif %}
-            <link rel="stylesheet" type="text/css" href="static/reset.css" />
-            <link rel="stylesheet" type="text/css" href="static/stylesheet.css"/>
+            <link rel="stylesheet" type="text/css" href="static/reset.css" async/>
+            <link rel="stylesheet" type="text/css" href="static/stylesheet.css" async/>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="keywords" content="dragcave, dragons, 42" />
             <meta name="description" content="" />
             <title>{% block title %}{% endblock %}</title>
-            <script type='text/javascript' src="static/page.js"></script>
+            {% block scripts %}{% endblock %}
         {% endblock %}
     </head>
 
